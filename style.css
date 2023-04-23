@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubunt', sans-serif;
+}
+:root{
+    --Oro: #CCA333;
+    --Nero: #000000;
+    --Nero2: #222;
+    --Bianco: #FFFFFF;
+    --Grigio: #949494;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--Oro);
+    border-left: 10px solid var(--Oro);
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navigation.active{
+    width: 80px;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.navigation ul li:hover,
+.navigation ul li.hovered{
+    background-color: var(--Bianco);
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--Bianco);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
+    color: var(--Oro);
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75em;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+}
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow:  35px 35px 0 10px var(--Bianco);
+    pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow:  35px -35px 0 10px var(--Bianco);
+    pointer-events: none;
+}
+
+/* Main */
+.main{
+    position: absolute;
+    width:  calc(100% - 300px);
+    left:  300px;
+    min-height: 100vh;
+    background: var(--Bianco);
+    transition: 0.5s;
+}
+.main.active{
+    width:  calc(100% - 80px);
+    left: 80px;
+} 
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+.totalBalance{
+    position: relative;
+    margin-right: 300px;
+}
+.saldo{
+    display: flex;
+    margin-left: 800px;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.saldoTotale{
+    margin-left: 10px;
+}
+.logo{
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    animation: rotation 5s infinite linear;
+}
+@keyframes rotation {
+    from {
+        transform: rotatey(0deg);
+    }
+    to {
+        transform: rotatey(360deg);
+    }
+}
+.logo img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+hr{
+    height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+/* Card */
+.cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+}
+.cardBox .card{
+    position: relative;
+    background: var(--Bianco);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.1);
+    
+}
+.cardBox .card .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--Oro);
+}
+.cardBox .card .cardName{
+    color: var(--Nero2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card .iconBx{
+    font-size: 2em;
+    color: var(--Nero2);
+}
+.cardBox .card:hover{
+    background: var(--Oro);
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx{
+    color: var(--Bianco);
+}
+.search{
+    position: relative;
+    width: 175px;
+    margin: 0 10px;
+}
+.search label{
+    position: relative;
+    width: 100%;
+}
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--Grigio);
+    margin-left: -11px;
+}
+.cssbuttons-io-button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.7em 1.4em 0.7em 1.4em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    cursor: pointer;
+  }
+  
+  /* .cssbuttons-io-button svg {
+    margin-right: 6px;
+  } */
+  
+  .cssbuttons-io-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+  }
+  
+  .cssbuttons-io-button:active {
+    box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  input[type=number]{
+    -moz-appearance: textfield;
+}
+.graphBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+    min-height: 400px;
+}
+.graphBox .box{
+    position: relative;
+    background: var(--Bianco);
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.graphBox .box2{
+    position: relative;
+    background: var(--Bianco);
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+.graphBox .box .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--Oro);
+    margin-top: 15px;
+}
+.graphBox .box .cardName{
+    color: var(--Nero);
+    font-size: 2em;
+}
+.box .cssbuttons-io-button {
+    font-size: 1.5em;
+    margin-top: 25px;
+}
+.numberChart{
+    color: var(--Nero);
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+.numberChart li{
+    list-style: none;
+    height: 50px;
+    position: relative;
+}
+.numberChart span{
+    font-size: 13px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
+.bars{
+    color: var(--Nero);
+    font-size: 12px;
+    font-weight: 600;
+    background: #555;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 925px;
+    height: 300px;
+    box-shadow: 0 0 10px 0 #555;
+    border-radius: 5px;
+}
+.bars li{
+    display: table-cell;
+    width: 100px;
+    height: 300px;
+    position: relative;
+}
+.bars span{
+    width: 100%;
+    position: absolute;
+    bottom: -30px;
+    text-align: center;
+}
+.bars .bar{
+    display: block;
+    background: #17C0EB;
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 25px;
+    text-align: center;
+    box-shadow: 0 0 10px 0 rgba(23, 192, 235, 0.5);
+    transition: 0.5s;
+    transition-property: background, box-shadow;
+}
+.bars .bar:hover{
+    background: #55EFC4;
+    box-shadow: 0 0 10px 0 rgba(85, 239, 196, 0.5);
+    cursor: pointer;
+}
+.bars .bar:before{
+    color: #fff;
+    content: attr(data-percentage) '%';
+    position: relative;
+    bottom: 20px;
+}

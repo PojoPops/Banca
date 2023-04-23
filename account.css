@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubunt', sans-serif;
+}
+:root{
+    --Oro: #CCA333;
+    --Nero: #000000;
+    --Nero2: #222;
+    --Bianco: #FFFFFF;
+    --Grigio: #949494;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--Oro);
+    border-left: 10px solid var(--Oro);
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navigation.active{
+    width: 80px;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.navigation ul li:hover,
+.navigation ul li.hovered{
+    background-color: var(--Bianco);
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--Bianco);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
+    color: var(--Oro);
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75em;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+}
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow:  35px 35px 0 10px var(--Bianco);
+    pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow:  35px -35px 0 10px var(--Bianco);
+    pointer-events: none;
+}
+
+/* Main */
+.main{
+    position: absolute;
+    width:  calc(100% - 300px);
+    left:  300px;
+    min-height: 100vh;
+    background: var(--Bianco);
+    transition: 0.5s;
+}
+.main.active{
+    width:  calc(100% - 80px);
+    left: 80px;
+} 
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+.totalBalance{
+    position: relative;
+    margin-right: 300px;
+}
+.logo{
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    animation: rotation 5s infinite linear;
+}
+@keyframes rotation {
+    from {
+        transform: rotatey(0deg);
+    }
+    to {
+        transform: rotatey(360deg);
+    }
+}
+.logo img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* .cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+}
+.cardBox .card{
+    position: relative;
+    background: var(--Bianco);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.20);
+}
+.cardBox .card .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--Oro);
+}
+.cardBox .card .cardName{
+    color: var(--Nero2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card .iconBx{
+    font-size: 2em;
+    color: var(--Nero2);
+}
+.cardBox .card:hover{
+    background: var(--Oro);
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx{
+    color: var(--Bianco);
+} */
+.containerCard{
+    min-height: 100vh;
+    background: var(--Bianco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding-bottom: 60px;
+}
+
+.containerCard form{
+    background: var(--Bianco);
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 600px;
+    padding-top: 160px;
+}
+
+.containerCard form .inputBox{
+margin-top: 20px;
+}
+
+.containerCard form .inputBox span{
+    display: block;
+    color:#999;
+    padding-bottom: 5px;
+}
+
+.containerCard form .inputBox input,
+.containerCard form .inputBox select{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border:1px solid rgba(0,0,0,.3);
+    color:#444;
+}
+
+.containerCard form .flexbox{
+    display: flex;
+    gap:15px;
+}
+
+.containerCard form .flexbox .inputBox{
+    flex:1 1 150px;
+}
+
+.containerCard form .submit-btn{
+    width: 100%;
+    background:linear-gradient(45deg, blueviolet, deeppink);
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color:#fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.containerCard form .submit-btn:hover{
+    letter-spacing: 2px;
+    opacity: .8;
+}
+
+.containerCard .card-container{
+    margin-bottom: -150px;
+    position: relative;
+    height: 250px;
+    width: 400px;
+}
+
+.containerCard .card-container .front{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0; left: 0;
+    background:linear-gradient(45deg, blueviolet, deeppink);
+    border-radius: 5px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    padding:20px;
+    transform:perspective(1000px) rotateY(0deg);
+    transition:transform .4s ease-out;
+}
+
+.containerCard .card-container .front .image{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.containerCard .card-container .front .image img{
+    height: 50px;
+}
+
+.containerCard .card-container .front .card-number-box{
+    padding:30px 0;
+    font-size: 22px;
+    color:var(--Bianco);
+}
+
+.containerCard .card-container .front .flexbox{
+    display: flex;
+}
+
+.containerCard .card-container .front .flexbox .box:nth-child(1){
+    margin-right: auto;
+}
+
+.containerCard .card-container .front .flexbox .box{
+    font-size: 15px;
+    color:#fff;
+}
+
+.containerCard .card-container .back{
+    position: absolute;
+    top:0; left: 0;
+    height: 100%;
+    width: 100%;
+    background:linear-gradient(45deg, blueviolet, deeppink);
+    border-radius: 5px;
+    padding: 20px 0;
+    text-align: right;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    transform:perspective(1000px) rotateY(180deg);
+    transition:transform .4s ease-out;
+}
+
+.containerCard .card-container .back .stripe{
+    background: #000;
+    width: 100%;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.containerCard .card-container .back .box{
+    padding: 0 20px;
+}
+
+.containerCard .card-container .back .box span{
+    color:#fff;
+    font-size: 15px;
+}
+
+.containerCard .card-container .back .box .cvv-box{
+    height: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    color:#333;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.containerCard .card-container .back .box img{
+    margin-top: 30px;
+    height: 30px;
+}
